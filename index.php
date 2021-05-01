@@ -2,7 +2,33 @@
 $is_auth = rand(0, 1);
 
 $user_name = 'Irina'; // укажите здесь ваше имя
-$categories = ['Доски и лыжи', 'Крепления', 'Ботинки', 'Одежда', 'Инструменты', 'Разное'];
+$categories = [
+        [
+            'name' => 'Доски и лыжи',
+            'code' => 'boards',
+        ],
+        [
+            'name' => 'Крепления',
+            'code' => 'attachment',
+        ],
+        [
+            'name' => 'Ботинки',
+            'code' => 'boots',
+        ],
+        [
+            'name' => 'Одежда',
+            'code' => 'clothing',
+        ],
+        [
+            'name' => 'Инструменты',
+            'code' => 'tools',
+        ],
+        [
+            'name' => 'Разное',
+            'code' => 'other',
+
+        ],
+    ];
 $products = [
     [
         'name' => '2014 Rossignol District Snowboard',
@@ -92,8 +118,8 @@ $products = [
         <p class="promo__text">На нашем интернет-аукционе ты найдёшь самое эксклюзивное сноубордическое и горнолыжное снаряжение.</p>
         <ul class="promo__list">
             <?php foreach ($categories as $category):?>
-                <li class="promo__item promo__item--boards">
-                    <a class="promo__link" href="pages/all-lots.html"><?= $category ?></a>
+                <li class="promo__item promo__item--<?= $category['code'] ?>">
+                    <a class="promo__link" href="pages/all-lots.html"><?= $category['name'] ?></a>
                 </li>
             <?php endforeach;?>
         </ul>
