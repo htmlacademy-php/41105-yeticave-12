@@ -2,7 +2,7 @@
 require_once('php/PriceFormatter.php');
 require_once('helpers.php');
 $formatter = new PriceFormatter();
-$time = new TimeCalculator();
+$timeCalculator = new TimeCalculator();
 
 $is_auth = rand(0, 1);
 
@@ -82,7 +82,7 @@ $content = include_template('main.php', [
     'formatter' => $formatter,
     'products' => $products,
     'categories' => $categories,
-    'time' => $time
+    'time' => $timeCalculator
 ]);
 
 print(include_template('layout.php', [
