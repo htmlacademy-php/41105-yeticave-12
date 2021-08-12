@@ -27,8 +27,11 @@
                             <span class="lot__amount">Стартовая цена</span>
                             <span class="lot__cost"><?= $formatter->getPrice(htmlspecialchars($product['price'])) ?></span>
                         </div>
-                        <div class="lot__timer timer">
-                            12:23
+                        <?php $timeLeft = $time->getTimeLeft($product['disappearanceDate']); ?>
+                        <div class="lot__timer timer <?php if($timeLeft[0] === "0") {
+                            echo 'timer--finishing';
+                        } ?>">
+                           <?=$timeLeft[0] . ":" . $timeLeft[1];?>
                         </div>
                     </div>
                 </div>
